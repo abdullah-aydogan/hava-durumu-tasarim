@@ -2,6 +2,10 @@
 
 Udemy'deki Flutter Bootcamp eğitiminde verilen üçüncü ödev çalışması (Tasarım ödevi)
 
+## Uygulamadan Ekran Görüntüsü
+
+![ekran_goruntusu](https://github.com/abdullah-aydogan/hava-durumu-tasarim/assets/117303457/d5aef7e6-4ee8-44f3-b672-5d2b7cec9e98)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
