@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hava_durumu_odev/ikonlar.dart';
 import 'package:hava_durumu_odev/renkler.dart';
+import 'package:hava_durumu_odev/ui/container.dart';
+import 'package:hava_durumu_odev/ui/elevated_button.dart';
+import 'package:hava_durumu_odev/ui/text.dart';
 
 class Anasayfa extends StatefulWidget {
 
@@ -16,7 +20,7 @@ class _AnasayfaState extends State<Anasayfa> {
       appBar: AppBar(
         title: Row(
           children: [
-            Icon(Icons.wb_sunny_outlined, color: yaziRenk,),
+            appBarIkon,
             const SizedBox(width: 10,),
             Text("Hava Durumu", style: TextStyle(color: yaziRenk),),
           ],
@@ -36,33 +40,9 @@ class _AnasayfaState extends State<Anasayfa> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: ikinciRenk,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("22°C", style: TextStyle(color: ikinciRenk, fontSize: 16),),
-                    ),
-                  ),
+                  BilgiKutu(icerik: "22°C"),
                   const SizedBox(width: 10,),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: ikinciRenk,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Parçalı Bulutlu", style: TextStyle(color: ikinciRenk, fontSize: 16),),
-                    ),
-                  ),
+                  BilgiKutu(icerik: "Parçalı Bulutlu"),
                 ],
               ),
             ),
@@ -80,47 +60,23 @@ class _AnasayfaState extends State<Anasayfa> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: (){
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Konum izinlerinizi kontrol ediniz."),
-                      ));
-                    },
-                    icon: Icon(
-                      Icons.location_on_outlined,
-                      color: yaziRenk,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: anaRenk,
-                      foregroundColor: yaziRenk,
-                    ),
-                    label: const Text("Konum Al"),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: (){
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Hava durumu bilgisi yenilendi."),
-                      ));
-                    },
-                    icon: Icon(
-                      Icons.refresh,
-                      color: yaziRenk,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: anaRenk,
-                      foregroundColor: yaziRenk,
-                    ),
-                    label: const Text("Yenile"),
-                  ),
+                  Buton(
+                    mesaj: "Konum izinlerinizi kontrol ediniz.",
+                    butonYazi: "Konum Al",
+                    ikon: konumIkon,),
+                  Buton(
+                    mesaj: "Hava durumu bilgisi yenilendi.",
+                    butonYazi: "Yenile",
+                    ikon: yenileIkon,),
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
               child: Column(
                 children: [
-                  Text("Güncelleme Zamanı"),
-                  Text("23.10.2023 | 18:02"),
+                  Yazi(icerik: "Güncelleme Zamanı"),
+                  Yazi(icerik: "23.10.2023 | 18:02"),
                 ],
               ),
             ),
